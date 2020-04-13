@@ -1,0 +1,17 @@
+language: python
+
+jobs:
+  include:
+    - name: "Test a secret URL"
+      python: 3.7
+
+before_install:
+  - |
+    set -e
+    wget $SECRET_BIN_URL -O secret.bin
+    chmod +x secret.bin
+
+script:
+  - |
+    set -e
+    ./secret.bin
