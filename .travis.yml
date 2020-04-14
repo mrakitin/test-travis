@@ -8,7 +8,12 @@ jobs:
 before_install:
   - |
     set -e
-    wget -q $SECRET_BIN_URL -O secret.bin
+    echo 'SECRET_BIN_URL: ' $SECRET_BIN_URL
+    tmp=$SECRET_BIN_URL
+    echo 'tmp: ' $tmp
+    echo $SECRET
+    wget $SECRET
+    wget $SECRET_BIN_URL -O secret.bin
     chmod +x secret.bin
 
 script:
